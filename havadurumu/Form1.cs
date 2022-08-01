@@ -2,9 +2,9 @@ using System.Xml.Linq;
 
 namespace havadurumu
 {
-    public partial class Form1 : Form
+    public partial class anaForm : Form
     {
-        public Form1()
+        public anaForm()
         {
             InitializeComponent();
         }
@@ -32,6 +32,7 @@ namespace havadurumu
             var ruzgar = hava.Descendants("speed").ElementAt(0).Attribute("value").Value;
             var nem = hava.Descendants("humidity").ElementAt(0).Attribute("value").Value;
             var durum = hava.Descendants("weather").ElementAt(0).Attribute("value").Value;
+            var sehir = hava.Descendants("city").ElementAt(0).Attribute("name").Value;
 
 
 
@@ -39,7 +40,8 @@ namespace havadurumu
             lblSýcaklýk.Text = sicaklik.ToString();
             lblRuzgar.Text = ruzgar + " m/s";
             lblNem.Text = nem + " %";
-            lblDurum.Text = durum.ToString();
+            lblDurum.Text = durum.ToUpper();
+            lblSehir.Text = sehir.ToString();
 
 
 
@@ -64,6 +66,11 @@ namespace havadurumu
             {
                 pictureBox1.Image = Properties.Resources._001lighticons_34;
             }
+        }
+
+        private void lblSehir_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
